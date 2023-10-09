@@ -27,8 +27,6 @@ func (student Student) AverageScore() string {
 
 	averageScore := "Average Score : " + fmt.Sprintf("%d", totalScore/len(student.Score))
 
-	fmt.Println(averageScore)
-
 	return averageScore
 }
 
@@ -53,8 +51,8 @@ func (student Student) MinMaxScore() (string, string) {
 		}
 	}
 
-	resultMinScore := fmt.Sprintf("Min Score of Students: %s (%d)\n", minScoreName, minScore)
-	resultMaxScore := fmt.Sprintf("Max Score of Students: %s (%d)", maxScoreName, maxScore)
+	resultMinScore := fmt.Sprintf("Min Score of Students: %s (%d)", minScoreName, minScore)
+	resultMaxScore := fmt.Sprintf("\nMax Score of Students: %s (%d)", maxScoreName, maxScore)
 
 	return resultMinScore, resultMaxScore
 }
@@ -82,7 +80,7 @@ func main() {
 	// 1.
 	fmt.Println("Jawaban No 1.")
 
-	sedan := Car{"Sedan", 1.5}
+	sedan := Car{"Sedan", 2}
 	estimatedDistance := sedan.EstimateDestination()
 
 	fmt.Printf("Mobil tipe %s dengan %0.2f liter bahan bakar bisa ditempuh sekitar %0.2f mill\n", sedan.Type, sedan.FuelIn, estimatedDistance)
@@ -96,16 +94,25 @@ func main() {
 	totalStudent := 5
 
 	for i := 0; i < totalStudent; i++ {
-		var name string
-		var score int
+		// var name string
+		// var score int
+
+		// fmt.Printf("Input student name %d: ", i+1)
+		// fmt.Scanln(&name)
+		// fmt.Printf("Input student score %d: ", i+1)
+		// fmt.Scanln(&score)
+
+		// studentScore.Name = append(studentScore.Name, name)
+		// studentScore.Score = append(studentScore.Score, score)
+
+		studentScore.Name = append(studentScore.Name, "")
+		studentScore.Score = append(studentScore.Score, 0)
 
 		fmt.Printf("Input student name %d: ", i+1)
-		fmt.Scanln(&name)
+		fmt.Scanln(&studentScore.Name[i])
 		fmt.Printf("Input student score %d: ", i+1)
-		fmt.Scanln(&score)
+		fmt.Scanln(&studentScore.Score[i])
 
-		studentScore.Name = append(studentScore.Name, name)
-		studentScore.Score = append(studentScore.Score, score)
 	}
 
 	fmt.Println(studentScore.AverageScore())
@@ -126,6 +133,6 @@ func main() {
 
 	min, max = getMinMax(&a1, &a2, &a3, &a4, &a5, &a6)
 
-	fmt.Println("Nilai min ", min)
-	fmt.Println("Nilai max ", max)
+	fmt.Println("Nilai min", min)
+	fmt.Println("Nilai max", max)
 }
